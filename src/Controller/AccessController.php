@@ -2,17 +2,31 @@
 
 namespace App\Controller;
 
+use App\Form\AccessFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AccessController extends AbstractController
 {
-    #[Route('/check-client-access', name: 'app_main')]
-    public function index(): Response
+    #[Route('client-access', name: 'access')]
+    public function index(Request $request): Response
     {
-        return $this->render('check-client-access/index.html.twig', [
-            'controller_name' => 'AccessController',
+        $form = $this->createForm(AccessFormType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dataForm = $form->getData();
+
+            if ($dataForm['access_type'] === 'ftp') {
+                dump($dataForm);
+            }
+        }
+
+        return $this->render('client-access/index.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 }
