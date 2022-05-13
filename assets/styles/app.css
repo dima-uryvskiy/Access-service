@@ -1,3 +1,47 @@
-#access_form {
-    text-align: center
+form div {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+input, select {
+    width: 200px;
+    font-size: 13px;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #F6F6f6;
+    border-radius: 8px;
+}
+
+select {
+    width: 215px;
+}
+
+#access_form_submit {
+    margin-top: 10%;
+    position: relative;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    padding: .6em 6em;
+    outline: none;
+    background-color: #000;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%), radial-gradient(190% 100% at 50% 0%, rgba(255,255,255,.7) 0%, rgba(255,255,255,.5) 50%, rgba(0,0,0,0) 50%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+}
+
+#access_form_submit:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+#access_form_submit:hover {
+    transition: .5s linear;
+    background-position: -200% 0, 0 0;
 }
