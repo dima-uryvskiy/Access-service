@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\AccessFormType;
+use App\Service\CheckAccess;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +22,9 @@ class AccessController extends AbstractController
             $dataForm = $form->getData();
 
             if ($dataForm['access_type'] === 'ftp') {
-                dump($dataForm);
+                dump(CheckAccess::checkFtpAccess($dataForm));
+            } else {
+                dump(CheckAccess::checkSshAccess($dataForm));
             }
         }
 
